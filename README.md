@@ -57,6 +57,9 @@ pip install opencv-python numpy pandas
 
    * Run the `crop.py` script to get the coordinates of the dryer opening in the image.
    * Use the extracted coordinates from `crop.py` to update the values of **`xc_ref, yc_ref, r_ref`** in the `dryer.py` file.
+### How to Use `crop.py`
+
+The **`crop.py`** script is essential for extracting the coordinates of the dryer openings. Once you run it, you’ll obtain the center coordinates and radius for your reference image. These values need to be inserted into the `dryer.py` script to proceed with the diameter measurement in the target images.
 
 5. **Image Registration (ORB and Homography)**:
    The **image registration** process aligns two images (reference and target) using feature matching and homography. The steps involved are:
@@ -113,12 +116,8 @@ Feel free to modify the script or add new functionality as needed!
 ---
 
 ### Example Images
+<img width="1519" height="676" alt="image" src="https://github.com/user-attachments/assets/a5a0d316-6e14-424b-9617-277526ef94b2" />
 
----<img width="1538" height="714" alt="image" src="https://github.com/user-attachments/assets/759ab5d2-ca39-4cd8-afe7-62d9ee7266a1" />
 
-
-### How to Use `crop.py`
-
-The **`crop.py`** script is essential for extracting the coordinates of the dryer openings. Once you run it, you’ll obtain the center coordinates and radius for your reference image. These values need to be inserted into the `dryer.py` script to proceed with the diameter measurement in the target images.
 
 Let me know if you need any further adjustments or explanations!
