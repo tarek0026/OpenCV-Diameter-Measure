@@ -103,3 +103,5 @@ pip install opencv-python numpy pandas
 This project is designed for measuring the **outer and inner diameters of dryer openings** in images. By using OpenCV’s feature matching and homography, the project achieves accurate measurements. The results are saved in an Excel file for easy access and further analysis.
 
 Feel free to modify the script or add new functionality as needed!
+<img width="1490" height="590" alt="image" src="https://github.com/user-attachments/assets/224fef66-a4bc-49fd-9a43-fc46fbb12f89" />
+
