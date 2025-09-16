@@ -1,7 +1,6 @@
-
 # Dryer Diameter Measurement Project
 
-This project uses **OpenCV** to measure the **outer and inner diameters** of the dryer openings in images. The process involves **ORB feature matching** and **Homography** for image registration, extracting the circular regions from the images, and calculating the diameters of these openings. The results are displayed on the image and saved to an Excel file for further analysis.
+This project uses **OpenCV** to measure the **outer and inner diameters** of dryer openings in images. The process involves **ORB feature matching** and **Homography** for image registration, extracting the circular regions from the images, and calculating the diameters of these openings. The results are displayed on the image and saved to an Excel file for further analysis.
 
 ## Requirements
 
@@ -22,7 +21,8 @@ pip install opencv-python numpy pandas
 ```
 /project
     /images           # Folder for images
-    crop.py           # Python script for diameter extraction
+    crop.py           # Python script for diameter extraction (used for coordinate extraction)
+    dryer.py          # Main Python script for processing and measuring diameters
     dryers.xlsx       # Excel file for saving measured diameters
     README.md         # This file
 ```
@@ -38,7 +38,7 @@ pip install opencv-python numpy pandas
    Make sure the images show the dryer openings you want to measure.
 
 3. **Edit the Code for Your Image**:
-   Open the `crop.py` file.
+   Open the `dryer.py` file.
    In this file, locate the section where the dryer’s **coordinates** and **radius** are defined:
 
    ```python
@@ -52,7 +52,13 @@ pip install opencv-python numpy pandas
 
    * For example, use an image viewer to find the center and radius of the dryer opening in your reference image and update the values in the code accordingly.
 
-4. **Image Registration (ORB and Homography)**:
+4. **Using `crop.py` for Coordinate Extraction**:
+   The **`crop.py`** file is used to crop the circular region from the images and extract the coordinates. You need to:
+
+   * Run the `crop.py` script to get the coordinates of the dryer opening in the image.
+   * Use the extracted coordinates from `crop.py` to update the values of **`xc_ref, yc_ref, r_ref`** in the `dryer.py` file.
+
+5. **Image Registration (ORB and Homography)**:
    The **image registration** process aligns two images (reference and target) using feature matching and homography. The steps involved are:
 
    * **ORB Feature Matching**:
@@ -63,11 +69,11 @@ pip install opencv-python numpy pandas
 
    This process is crucial for accurately calculating the transformed coordinates of the dryer opening in the target image.
 
-5. **Run the Script**:
-   After setting up your reference image and coordinates, run the `crop.py` script to crop the dryer opening from the target image and calculate the **outer and inner diameters**:
+6. **Run the Script**:
+   After setting up your reference image and coordinates in `dryer.py`, run the script to crop the dryer opening from the target image and calculate the **outer and inner diameters**:
 
    ```bash
-   python crop.py
+   python dryer.py
    ```
 
    The script will:
@@ -77,7 +83,7 @@ pip install opencv-python numpy pandas
    * Display the target image with the diameters annotated.
    * Save the results in an Excel file (`dryers.xlsx`).
 
-6. **Saving Results**:
+7. **Saving Results**:
    The measured **outer diameter (OD)** and **inner diameter (ID)** of the dryer opening will be saved to the `dryers.xlsx` file. You can open the Excel file to view the measurements for each processed image.
 
 ---
@@ -103,5 +109,16 @@ pip install opencv-python numpy pandas
 This project is designed for measuring the **outer and inner diameters of dryer openings** in images. By using OpenCV’s feature matching and homography, the project achieves accurate measurements. The results are saved in an Excel file for easy access and further analysis.
 
 Feel free to modify the script or add new functionality as needed!
-<img width="1490" height="590" alt="image" src="https://github.com/user-attachments/assets/224fef66-a4bc-49fd-9a43-fc46fbb12f89" />
 
+---
+
+### Example Images
+
+---<img width="1538" height="714" alt="image" src="https://github.com/user-attachments/assets/759ab5d2-ca39-4cd8-afe7-62d9ee7266a1" />
+
+
+### How to Use `crop.py`
+
+The **`crop.py`** script is essential for extracting the coordinates of the dryer openings. Once you run it, you’ll obtain the center coordinates and radius for your reference image. These values need to be inserted into the `dryer.py` script to proceed with the diameter measurement in the target images.
+
+Let me know if you need any further adjustments or explanations!
