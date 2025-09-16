@@ -1,6 +1,3 @@
-Thank you for the clarification! Here’s the updated **README** that reflects the measurements for the **inner and outer diameters of the dryer** instead of a general circle:
-
----
 
 # Dryer Diameter Measurement Project
 
